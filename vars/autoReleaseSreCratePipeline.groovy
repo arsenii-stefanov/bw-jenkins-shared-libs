@@ -23,7 +23,7 @@ def call(Map pipelineParams) {
                 usernamePassword(credentialsId: 'artifactory-jenkins', usernameVariable: 'ARTI_JENKINS_USER', passwordVariable: 'ARTI_JENKINS_PASS')
               ]) {
                 withEnv(["BIO_ROOT=${env.WORKSPACE}/${pipelineParams.git_repo_name}",
-                          "GIT_SUBDIR_NAME=${pipelineParams.git_subdir_name}"
+                          "GIT_SUBDIR_NAME=${pipelineParams.git_subdir_name}",
                           "TARGET_IMAGE_FULL=${pipelineParams.target_image_full}",
                           "PACKAGE_NAME=${pipelineParams.crate_package_name}",
                           "ENV_NAME=${pipelineParams.crate_env_name}"
