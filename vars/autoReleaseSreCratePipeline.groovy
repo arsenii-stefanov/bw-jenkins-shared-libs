@@ -30,7 +30,7 @@ def call(Map pipelineParams) {
                 ]) {
                     sh "git config --global --add safe.directory ${BIO_ROOT}"
                     sh """
-                      BASE_IMAGE=\$(grep 'base_image:' ${GIT_SUBDIR_NAME}/prod/packages/${PACKAGE_NAME}/${PACKAGE_NAME}.yml | awk '{print $2}')
+                      BASE_IMAGE=\$(grep 'base_image:' ${GIT_SUBDIR_NAME}/prod/packages/${PACKAGE_NAME}/${PACKAGE_NAME}.yml | awk '{print \$2}')
                       if [ -n "\${BASE_IMAGE}" ]; then
                         if ! ./${GIT_SUBDIR_NAME}/prod/packages/base-containers/check_base_layer.sh \${BASE_IMAGE} ${TARGET_IMAGE_FULL}; then
                           ARTIFACT_VERSION="\$(date -u '+%Y%m%d')"
